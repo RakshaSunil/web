@@ -5,7 +5,7 @@
 $(document).ready(function(){
 
             $("#getalltweets").click(function(){
-                $.ajax({url: "http://localhost:8081/alltweets", success: function(result){
+                $.ajax({url: "http://34.207.236.242:8081/alltweets", success: function(result){
                     $("#alltweets").text(JSON.stringify(result));
                 }});
                 return false;
@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
             $("#getallusers").click(function(){
-                $.ajax({url: "http://localhost:8081/allusers", success: function(result){
+                $.ajax({url: "http://34.207.236.242:8081/allusers", success: function(result){
                     $("#allusers").text(JSON.stringify(result));
                 }});
                 return false;
@@ -24,7 +24,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
             $("#getlinks").click(function(){
-                $.ajax({url: "http://localhost:8081/links", success: function(result){
+                $.ajax({url: "http://34.207.236.242:8081/links", success: function(result){
                     $("#links").text(JSON.stringify(result));
                 }});
                 return false;
@@ -34,7 +34,7 @@ $(document).ready(function(){
 $(document).ready(function(){
             $("#get_tweet_details").click(function(){
 				var tweet_id = $("#tweet_id").val();
-                $.ajax({url: "http://localhost:8081/details?tweet_id="+tweet_id, success: function(result){
+                $.ajax({url: "http://34.207.236.242:8081/process_get_details_about_tweet?tweet_id="+tweet_id, success: function(result){
                     $("#detailsaboutatweet").text(JSON.stringify(result));
                 }});
                 return false;
@@ -45,7 +45,7 @@ $(document).ready(function(){
 $(document).ready(function(){
             $("#get_user_details").click(function(){
 				var user_name = $("#user_name").val();
-                $.ajax({url: "http://localhost:8081/process_get_details_about_twitter_user?user_name="+user_name, success: function(result){
+                $.ajax({url: "http://34.207.236.242:8081/process_get_details_about_twitter_user?user_name="+user_name, success: function(result){
                     $("#detailsaboutauser").text(JSON.stringify(result));
                 }});
                 return false;

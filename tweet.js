@@ -54,7 +54,7 @@ app.get('/links', function (req, res)
     res.send(result);
 
 })
-app.get('/details', function (req, res) 
+app.get('/process_get_details_about_tweet', function (req, res) 
 {
 	
 	var tweetid = req.param('tweet_id');
