@@ -1,0 +1,90 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+
+            $("#getalltweets").click(function(){
+                $.ajax({url: "http://localhost:8081/alltweets", success: function(result){
+                    $("#alltweets").text(JSON.stringify(result));
+                }});
+                return false;
+            });
+});
+
+$(document).ready(function(){
+            $("#getallusers").click(function(){
+                $.ajax({url: "http://localhost:8081/allusers", success: function(result){
+                    $("#allusers").text(JSON.stringify(result));
+                }});
+                return false;
+            });
+});
+
+
+$(document).ready(function(){
+            $("#getlinks").click(function(){
+                $.ajax({url: "http://localhost:8081/links", success: function(result){
+                    $("#links").text(JSON.stringify(result));
+                }});
+                return false;
+            });
+});
+
+$(document).ready(function(){
+            $("#get_tweet_details").click(function(){
+				var tweet_id = $("#tweet_id").val();
+                $.ajax({url: "http://localhost:8081/details?tweet_id="+tweet_id, success: function(result){
+                    $("#detailsaboutatweet").text(JSON.stringify(result));
+                }});
+                return false;
+            });
+});
+
+
+$(document).ready(function(){
+            $("#get_user_details").click(function(){
+				var user_name = $("#user_name").val();
+                $.ajax({url: "http://localhost:8081/process_get_details_about_twitter_user?user_name="+user_name, success: function(result){
+                    $("#detailsaboutauser").text(JSON.stringify(result));
+                }});
+                return false;
+            });
+});
+
+</script>
+<body>
+
+
+Get All Tweets
+
+<button id="getalltweets" href="/alltweets">Get All Tweets</button>
+<div id="alltweets"></div>
+<br><br>
+
+Get All Users
+
+<button id="getallusers" href="/allusers">Get All Users</button>
+<div id="allusers"></div>
+<br><br>
+Get All External Links
+
+<button id="getlinks" href="/links">Get All External Links</button>
+<div id="links"></div>
+<br><br>
+
+Get Tweet details
+
+<p>Tweet id: </p> <input id="tweet_id">
+<button type="submit" id="get_tweet_details">Get Tweet details</button>
+<div id="detailsaboutatweet"></div>
+<br><br>
+
+Get User details
+
+<p>User Name: </p> <input id="user_name" type="text">
+<button type="submit" id="get_user_details">Get User details</button>
+<div id="detailsaboutauser"></div>
+
+</body>
+</html>
